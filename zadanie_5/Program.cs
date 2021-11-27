@@ -35,16 +35,34 @@ namespace zadanie_5
             Console.WriteLine("________________________________________________________________________________");
             Console.WriteLine("Перемножение матриц");
             int[,] Mul = new int[5, 5];
-            for (int i = 0; i < Mul.GetLength(0); i++)
+            //for (int r = 0; r < Mul.GetLength(0); r++)
+            //{
+            //    for (int c = 0; c < Mul.GetLength(1); c++)
+            //    {
+            //        Mul[r, c] += myArray[r, c] * myArray2[c, r];// + myArray[r + 1, c + 1]
+            //        Console.Write("  " + Mul[r, c]+" ");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine("________________________________________________________________________________");  
+            for (int r = 0; r < myArray.GetLength(0); r++)
             {
-                for (int j = 0; j < Mul.GetLength(1); j++)
+                for (int c = 0; c < myArray.GetLength(1); c++)
                 {
-                    Mul[i, j] = myArray[i, j] * myArray2[i, j];
-                    Console.Write("  " + Mul[i, j]+" ");
+                    for (int k = 0; k < myArray.GetLength(0); k++)
+                    {
+                        Mul[r, c] += myArray[r, k] * myArray2[k, c];
+                    }
+                }
+            }
+            for (int r = 0; r < myArray.GetLength(0); r++) 
+            {
+                for (int c = 0; c < myArray.GetLength(1); c++)
+                {
+                    Console.Write(" " + Mul[r, c] + " "); 
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("________________________________________________________________________________");
         }
     }
 }
